@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0A26E59F-786A-437B-8D03-211544E0A1D2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>min_stack</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E3429CEDC7A1BF6EED74AF9F7334D6CE9391E722</key>
+		<string>https://github.com/AlgoLINE/algoLINE.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>01_DFS/Hyunchul/min_stack/min_stack.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E3429CEDC7A1BF6EED74AF9F7334D6CE9391E722</key>
+		<string>../../../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/AlgoLINE/algoLINE.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E3429CEDC7A1BF6EED74AF9F7334D6CE9391E722</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E3429CEDC7A1BF6EED74AF9F7334D6CE9391E722</string>
+			<key>IDESourceControlWCCName</key>
+			<string>algoLine</string>
+		</dict>
+	</array>
+</dict>
+</plist>
