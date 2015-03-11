@@ -15,13 +15,13 @@ class MinStack {
 private:
     list<int> stack_list;
     list<int>::iterator min_itor;
-    
 public:
     void push(int x) {
-        stack_list.push_front(x);
-        if (stack_list.size() <= 1) {
+        if (stack_list.empty()) {
+            stack_list.push_front(x);
             min_itor = stack_list.begin();
         } else {
+            stack_list.push_front(x);
             if (x < *min_itor) {
                 min_itor = stack_list.begin();
             }
@@ -29,10 +29,30 @@ public:
     }
     
     void pop() {
-        if (stack_list.begin() == min_itor) {
-            find_min();
+        if (stack_list.empty()) {
+            return;
         }
-        stack_list.pop_front();
+        
+        if (stack_list.begin() == min_itor) {
+            stack_list.pop_front();
+            //find_min();
+            if (stack_list.size() == 1) {
+                return;
+            }
+            
+            list<int>::iterator itor;
+            int min = stack_list.front();
+            min_itor = stack_list.begin();
+            
+            for (itor = stack_list.begin(); itor != stack_list.end(); itor++) {
+                if (*itor < min) {
+                    min_itor = itor;
+                }
+            }
+            
+        } else {
+            stack_list.pop_front();
+        }
     }
     
     int top() {
@@ -57,19 +77,19 @@ public:
         return min_val;
     }
     
-    void find_min() {
-        if (stack_list.size() == 1) {
-            return;
-        }
-        
-        list<int>::iterator itor;
-        int min = stack_list.front();
-        min_itor = stack_list.begin();
-        
-        for (itor = stack_list.begin(); itor != stack_list.end(); itor++) {
-            if (*itor < min) {
-                min_itor = itor;
-            }
-        }
-    }
+//    void find_min() {
+//        if (stack_list.size() == 1) {
+//            return;
+//        }
+//        
+//        list<int>::iterator itor;
+//        int min = stack_list.front();
+//        min_itor = stack_list.begin();
+//        
+//        for (itor = stack_list.begin(); itor != stack_list.end(); itor++) {
+//            if (*itor < min) {
+//                min_itor = itor;
+//            }
+//        }
+//    }
 };
