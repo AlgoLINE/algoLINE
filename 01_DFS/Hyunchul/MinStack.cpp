@@ -35,8 +35,7 @@ public:
         
         if (stack_list.begin() == min_itor) {
             stack_list.pop_front();
-            //find_min();
-            if (stack_list.size() == 1) {
+            if (stack_list.empty()) {
                 return;
             }
             
@@ -76,20 +75,4 @@ public:
         
         return min_val;
     }
-    
-//    void find_min() {
-//        if (stack_list.size() == 1) {
-//            return;
-//        }
-//        
-//        list<int>::iterator itor;
-//        int min = stack_list.front();
-//        min_itor = stack_list.begin();
-//        
-//        for (itor = stack_list.begin(); itor != stack_list.end(); itor++) {
-//            if (*itor < min) {
-//                min_itor = itor;
-//            }
-//        }
-//    }
 };
