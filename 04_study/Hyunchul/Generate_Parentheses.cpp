@@ -65,7 +65,7 @@ public:
 			while (!nodeQ.empty()) {
 				Node tmpNode = nodeQ.front();
 
-				Node leftNode;//포인터만 저장할 경우 원본데이터가 날라갈수도 있음. 안 되면 큐를 Node* 에서 Node로 바꿔서 해볼것.
+				Node leftNode;
 				leftNode.SetData((string(tmpNode.GetData()) + "(").c_str());
 				leftNode.SetLc(tmpNode.GetLc() + 1);
 				leftNode.SetTc(tmpNode.GetTc() + 1);
