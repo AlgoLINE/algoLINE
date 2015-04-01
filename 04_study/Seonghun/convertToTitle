@@ -1,0 +1,22 @@
+public class Solution {
+    public String convertToTitle(int n) {
+        
+        if(n <= 0)
+            return "";
+            
+        String res = "";
+        int m, q = n-1;
+        
+        do{
+
+            m = q%26;
+            q = q/26-1;
+            
+            res = (char)((int)'A' + m) + res; 
+            
+        }while(q > -1);
+        
+        return res;
+        
+    }
+}
