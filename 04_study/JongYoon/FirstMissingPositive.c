@@ -14,7 +14,7 @@ int firstMissingPositive(int A[], int n) {
         if( num > 0) posNum[num] = true;
     }
     
-    for(int i = 1 ; i < INT_MAX ; i++){
+    for(int i = 1 ; i < n ; i++){
         if(!posNum[i]){
             return i;
         }
