@@ -1,0 +1,66 @@
+public class Solution {
+    public int firstMissingPositive(int[] A) {
+
+        int len = A.length;
+        
+        // if array A has no items..
+        if(len == 0) return 1;
+        if(len == 1) return (A[0] > 1) ? 1 : A[0]+1;
+
+        // init
+        final int SIZE = 100;
+        int[] table = new int[SIZE];
+        for(int i = 0 ; i < SIZE ; i++)
+            table[i] = -10 + i;
+            
+        int max = Integer.MIN_VALUE;
+        int min = Integer.MAX_VALUE;
+        for(int a : A){
+            if(a > max) max = a;
+            if(a < min && a > 0) min = a;
+        }
+        
+        // for higher performance
+        if(min > 1) 
+            return 1;
+
+        int target = 2;
+        while(target < max){
+            boolean find = false;
+            for(int i = 0 ; i < len ; i++){
+                // if the visited item is bigger than target,, the value might be target value.
+                if(A[i] > target){
+                    if(A[i] - SIZE == table[A[i] % SIZE])
+                        table[A[i] % SIZE] = A[i];
+                }
+                else if(A[i] == target){
+                    find = true;
+                    break;
+                }   
+            }
+            
+            if(find){
+                // update target to next value
+                while(table[++target % SIZE] > target);
+                
+                // reset array so that already checked values would not be visited again
+                int cnt = 0;
+                for(int i = 0 ; i < len - cnt ; i++){
+                    if(A[i] < target){
+                        cnt++;
+                        int temp = A[i];
+                        A[i] = A[len-cnt];
+                        A[len-cnt] = A[i];
+                    }
+                }
+                len -= cnt;
+            }
+            else{
+                return target;
+            }
+        }
+        
+        return max+1;
+
+    }
+}
