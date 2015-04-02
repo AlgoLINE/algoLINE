@@ -1,7 +1,6 @@
 class Solution:
     # @return a string
     def convertToTitle(self, num):
-        resultNumbers = []
         baseChar = ord('A')
 
         returnValue = ''
