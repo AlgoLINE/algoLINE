@@ -1,0 +1,71 @@
+public class Solution {
+    
+    private class Stack {
+        private char[] arr;
+        private int head = 0;
+        
+        public Stack(int n){
+            arr = new char[n];
+        }
+
+        public void push(char item){
+            arr[head++] = item;
+        }
+        
+        public char pop(){
+            return arr[--head];
+        }
+        
+        public String toString(){
+            return new String(arr);
+        }
+        
+        public int size(){
+            return head;
+        }
+    }
+    
+    public List<String> generateParenthesis(int n) {
+        
+        // init
+        Stack stack = new Stack(2*n);
+        for(int i = 0 ; i < 2*n ; i++){
+            if(i / n == 0) stack.push('(');
+            else           stack.push(')');
+        }
+        
+        Stack open  = new Stack(n);     // stack for '('. Actually, it doesn't need to be stack..
+        Stack close = new Stack(n);     // stack for ')'. Actually, it doesn't need to be stack..
+        
+        List<String> l = new ArrayList<String>();
+        l.add(stack.toString());
+        
+        // loop until reaching to end point; stack is empty
+        while(stack.size() > 0){
+            
+            // pop until reaching to '(';
+            char ch = stack.pop();
+            
+            if(ch == '('){
+                // search a point where recharing the stack should start
+                if(open.size()+1 == close.size()){
+                    open.push(ch);
+                }   
+                else{
+                    stack.push(close.pop());
+                    stack.push(ch);
+                    while(open.size() > 0)  stack.push(open.pop());
+                    while(close.size() > 0) stack.push(close.pop());
+                    l.add(stack.toString());
+                }                                
+            }
+            else{
+                close.push(ch);
+            }
+            
+        }
+        
+        return l;
+    }
+    
+}
