@@ -6,7 +6,10 @@ public:
     		return 0;
     	}
     	matrixSizeX = matrix[0].size();
-    
+    	
+    	cache.resize(matrixSizeX * matrixSizeY);
+    	fill(cache.begin(), cache.end(), -1);
+    	
     	return findMaximumArea(0, matrixSizeY - 1, matrix);
     }
     
@@ -40,6 +43,12 @@ public:
     }
 
     int findHeight(int startPosX, int posY, const vector<vector<char>> &matrix) {
+	    int currentIdx = matrixSizeX * posY + startPosX;
+	    
+		if (cache[currentIdx] != -1) {
+			return cache[currentIdx];
+		}
+        
     	int result = 0;
     	int currentX = startPosX;
     
@@ -47,6 +56,10 @@ public:
     		++result;
     		++currentX;
     	}
+    	
+    	for (int i = 0; i < result; ++i) {
+			cache[matrixSizeX * posY + startPosX + i] = result - i;
+		}
     
     	return result;
     }
@@ -66,4 +79,6 @@ public:
 private:
     int matrixSizeX = 0;
     int matrixSizeY = 0;
+    
+    vector<int> cache;
 };
