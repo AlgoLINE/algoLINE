@@ -38,7 +38,6 @@ public class Solution {
         for(int i=len-1; i>0; i--) {
             prev = head.next;
             next = storage.get(i);
-            // next.next = null;
             next.next = prev;
             head.next = next;
         }
