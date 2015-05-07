@@ -2,10 +2,8 @@ class Solution:
     # @param nums, an integer[]
     # @return an integer
     def findPeakElement(self, nums):
-        elementCount = len(nums)
-        
         startIdx = 0
-        endIdx = elementCount - 1
+        endIdx = len(nums) - 1
         mid = endIdx / 2
         
         while startIdx < endIdx :
