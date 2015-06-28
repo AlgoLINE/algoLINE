@@ -7,7 +7,6 @@ class Solution:
         for each in range(n-1) :
             newStr = ""
             
-            currentNumber = int(currentSeq[0])
             currentLen =  len(currentSeq)
             currentCount = 0
             
