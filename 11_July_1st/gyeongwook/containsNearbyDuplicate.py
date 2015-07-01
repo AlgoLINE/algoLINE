@@ -5,13 +5,9 @@ class Solution:
     def containsNearbyDuplicate(self, nums, k):
         lookup_table = {}
         for i in range(len(nums)):
-            if nums[i] in lookup_table:
-                for each in lookup_table[nums[i]]:
-                    if i - each <= k:
-                        return True
+            if nums[i] in lookup_table and i - lookup_table[nums[i]] <= k:
+                return True
                         
-                lookup_table[nums[i]].append(i)
-            else:
-                lookup_table[nums[i]] = [i]
+            lookup_table[nums[i]] = i
                     
         return False
