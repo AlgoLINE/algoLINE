@@ -1,3 +1,4 @@
+// easy
 public class Solution {
     
     private static final int upperStart = 65; //A
