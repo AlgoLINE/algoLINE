@@ -18,4 +18,3 @@ class Solution:
             triangle.append(current_row)
             
         return triangle
-                
